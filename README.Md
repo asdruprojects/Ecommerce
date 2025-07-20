@@ -37,6 +37,15 @@ Este paso crea los roles, permisos y un usuario administrador inicial:
 
 npx prisma db seed
 
+## 👤 Usuario Administrador por Defecto
+
+Luego de ejecutar el seed, se crea automáticamente un usuario con rol de administrador que puedes usar para ingresar al sistema.
+
+**Credenciales por defecto:**
+
+📧 Email: admin@ecommerce.com
+🔑 Password: Admin123*
+
 ## 🚀 Correr el servidor
 
 1. En desarrollo

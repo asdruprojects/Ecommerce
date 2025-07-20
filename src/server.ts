@@ -1,4 +1,4 @@
-import config from './config/config';
+import config from './config/env.config';
 import app from './app'
 import { PrismaClient } from '../generated/prisma';
 

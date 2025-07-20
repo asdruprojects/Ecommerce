@@ -1,8 +1,8 @@
 import express, { Express } from 'express';
 import cors from 'cors';
 import { errorHandlerMiddleware } from './middlewares/error-handler.middleware';
-import { swaggerDocs }  from './config/swagger'
-import config from './config/config';
+import { swaggerDocs }  from './config/swagger.config'
+import config from './config/env.config';
 import authRoutes from './routes/auth.route';
 import productRoutes from './routes/product.route';
 import orderRoutes from './routes/order.route';
