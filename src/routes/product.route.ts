@@ -14,10 +14,6 @@ import { validateCreateProduct, validateUpdateProduct } from '../validators/prod
 
 const router = Router();
 
-//Rutas públicas
-router.get('/', asyncHandler(getAvailableProducts)); 
-router.get('/:id', asyncHandler(getProductById));
-
 //Rutas administrativas
 router 
     .route('/admin')
@@ -27,5 +23,9 @@ router
     .route('/admin/:id')
     .patch(checkPermissionAuth('update_product'), validateUpdateProduct, asyncHandler(updateProduct))
     .delete(checkPermissionAuth('delete_product'), asyncHandler(deleteProduct));
+    
+//Rutas públicas
+router.get('/', asyncHandler(getAvailableProducts)); 
+router.get('/:id', asyncHandler(getProductById));
 
 export default router;

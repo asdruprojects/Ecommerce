@@ -21,7 +21,7 @@ export const checkPermissionAuth = (requiredPermission: string) => {
             });
             if (!user) throw new NotFoundException('El usuario asociado al token no existe');
             const userPermissions = user.role.permissions.map(rp => rp.permission.key);
-            if (!userPermissions.includes(requiredPermission)) throw new ForbiddenException('No tienes el permiso para acceder aquí');
+            if (!userPermissions.includes(requiredPermission)) throw new ForbiddenException('El usuario no tiene permiso para acceder a este recurso');
             next();
         } catch (error) {
             next(error);

@@ -14,7 +14,7 @@ export const getAvailableProducts = async (req: Request, res: Response) => {
             skip,
             take,
         }),
-        prismaClient.product.count({ where: { stock: { gt: 0 } } }),
+        prismaClient.product.count({ where: { stock: { gt: 0 }, status: true } }),
     ]);
     const page = take ? Math.floor(skip / take) + 1 : 1;
     const totalPages = take ? Math.ceil(total / take) : 1;
@@ -29,7 +29,7 @@ export const getAvailableProducts = async (req: Request, res: Response) => {
 
 export const getProductById = async (req: Request, res: Response) => {
     const { id } = req.params;
-    const product = await prismaClient.product.findUnique({ where: { id, status: true, } });
+    const product = await prismaClient.product.findUnique({ where: { id, status: true } });
     if (!product) throw new NotFoundException('Producto no encontrado');
     return sendSuccessResponse(res, 200, product, 'Producto obtenido correctamente');
 };

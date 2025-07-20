@@ -1,4 +1,4 @@
-import config from '../config';
+import config from '../config/config';
 import { Request } from 'express';
 import jwt, { JwtPayload, Secret } from 'jsonwebtoken';
 import { UnauthorizedException } from '../exceptions/custom-http.exception';
